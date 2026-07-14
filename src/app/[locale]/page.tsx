@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
         <div className="absolute inset-0 -z-10">
           {featured && (
             <Image
-              src={featured.imageUrl}
+              src={featured.image}
               alt=""
               fill
               priority
@@ -69,7 +69,7 @@ export default async function HomePage({ params }: Props) {
               <Link href={`/works/${featured.slug}`} className="group block" data-cursor="hover">
                 <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark shadow-2xl shadow-ink/10">
                   <Image
-                    src={featured.imageUrl}
+                    src={featured.image}
                     alt={featured.title}
                     fill
                     priority

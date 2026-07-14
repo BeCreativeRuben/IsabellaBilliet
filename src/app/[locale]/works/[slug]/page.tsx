@@ -34,7 +34,7 @@ export default async function WorkDetailPage({ params }: Props) {
         <div className="lg:col-span-8">
           <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
             <Image
-              src={work.imageUrl}
+              src={work.image}
               alt={work.title}
               fill
               priority

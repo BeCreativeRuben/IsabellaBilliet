@@ -14,7 +14,7 @@ export function WorkCard({ work, viewLabel, priority = false }: Props) {
       <Link href={`/works/${work.slug}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
           <Image
-            src={work.imageUrl}
+            src={work.image}
             alt={work.title}
             fill
             priority={priority}

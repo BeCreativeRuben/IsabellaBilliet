@@ -8,20 +8,13 @@ export type Work = {
   dimensions: string;
   year: number;
   category: WorkCategory;
-  /** Temporary: path to Instagram post — replace with local assets before launch */
+  image: string;
   instagramPost: string;
-  /** Fallback image from current site or Instagram CDN */
-  imageUrl: string;
   featured?: boolean;
 };
 
-const WP = "https://isabellabilliet.com/wp-content/uploads";
 const IG = "https://www.instagram.com/isabella_billiet";
 
-/**
- * Instagram post paths are placeholders until specific post URLs are added.
- * Replace `instagramPost` with real post paths like `/p/ABC123xyz/`.
- */
 export const works: Work[] = [
   {
     slug: "whispers-green-watercolor",
@@ -31,8 +24,8 @@ export const works: Work[] = [
     dimensions: "15 × 20 cm",
     year: 2026,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/whispers-green-watercolor.webp",
+    instagramPost: IG,
     featured: true,
   },
   {
@@ -43,8 +36,8 @@ export const works: Work[] = [
     dimensions: "76 × 56 cm",
     year: 2025,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/whispers-green-gouache-1.webp",
+    instagramPost: IG,
     featured: true,
   },
   {
@@ -55,8 +48,8 @@ export const works: Work[] = [
     dimensions: "76 × 56 cm",
     year: 2025,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/whispers-green-gouache-2.webp",
+    instagramPost: IG,
   },
   {
     slug: "traces",
@@ -66,8 +59,8 @@ export const works: Work[] = [
     dimensions: "—",
     year: 2023,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/traces.webp",
+    instagramPost: IG,
   },
   {
     slug: "golden-morning-light",
@@ -77,8 +70,8 @@ export const works: Work[] = [
     dimensions: "50 × 60 cm",
     year: 2021,
     category: "painting",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/golden-morning-light.webp",
+    instagramPost: IG,
     featured: true,
   },
   {
@@ -88,8 +81,8 @@ export const works: Work[] = [
     dimensions: "24 × 30 cm",
     year: 2020,
     category: "painting",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/water-energy.webp",
+    instagramPost: IG,
   },
   {
     slug: "water-in-movement-1",
@@ -99,8 +92,8 @@ export const works: Work[] = [
     dimensions: "—",
     year: 2019,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/water-in-movement-1.webp",
+    instagramPost: IG,
   },
   {
     slug: "water-in-movement-2",
@@ -110,8 +103,8 @@ export const works: Work[] = [
     dimensions: "—",
     year: 2019,
     category: "works-on-paper",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/water-in-movement-2.webp",
+    instagramPost: IG,
   },
   {
     slug: "weavings",
@@ -121,8 +114,8 @@ export const works: Work[] = [
     dimensions: "100 × 120 cm",
     year: 2019,
     category: "textile",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/weavings.webp",
+    instagramPost: IG,
   },
   {
     slug: "galaxy",
@@ -132,8 +125,31 @@ export const works: Work[] = [
     dimensions: "80 × 120 cm",
     year: 2018,
     category: "painting",
-    instagramPost: `${IG}/`,
-    imageUrl: `${WP}/2022/06/klein_0070a-1024x766.jpg`,
+    image: "/images/galaxy.webp",
+    instagramPost: IG,
+  },
+];
+
+export const exhibitionImages = [
+  {
+    slug: "exhibition-1",
+    image: "/images/exhibition-1.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "exhibition-2",
+    image: "/images/exhibition-2.webp",
+    caption: "Works on paper",
+  },
+  {
+    slug: "exhibition-3",
+    image: "/images/exhibition-3.webp",
+    caption: "Botanical studies",
+  },
+  {
+    slug: "exhibition-4",
+    image: "/images/exhibition-4.webp",
+    caption: "Gallery installation",
   },
 ];
 
