@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Isabella Billiet — Beeldende Kunst",
+    "description": "Schilderijen, fotografie en textiel van Isabella Billiet. Gevestigd in Gent, België."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Over",
+    "works": "Werken",
+    "exhibitions": "Tentoonstellingen",
+    "contact": "Contact"
+  },
+  "home": {
+    "eyebrow": "Beeldende Kunst · Gent",
+    "headline": "De kwetsbare essentie van het leven vastleggen",
+    "subline": "Schilderijen, fotografie en textiel — een stille ruimte voor reflectie.",
+    "ctaWorks": "Bekijk werken",
+    "ctaAbout": "Over de kunstenares",
+    "featured": "Uitgelicht",
+    "recent": "Recente werken",
+    "viewAll": "Alle werken bekijken",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "Over",
+    "bio1": "Geboren in Tielt, België, in 1966. Ik woon en werk nu in Gent. Mijn reis in de kunsten begon met kleurpotloden en groeide uit tot een levenslange verkenning van visuele expressie. Ik behaalde een master in Kunstgeschiedenis aan de Universiteit Gent, gevolgd door twee jaar Textielontwerp aan KASK in Gent.",
+    "bio2": "Mijn werk is een persoonlijke en gepassioneerde zoektocht om de kwetsbaarheid en de delicate essentie van het leven uit te drukken en vast te leggen. Ik voel me aangetrokken tot het samenspel van licht en schaduw, het oneindige en het vergankelijke, het dynamische en het statische. Door mijn praktijk zoek ik de poëtische en efemere dimensies van het bestaan te onthullen.",
+    "mediumsTitle": "Schilderijen — Fotografie — Textiel",
+    "mediums": "Mijn abstract werk is geïnspireerd door de natuur en verbeelding. Mijn realistische schilderijen beginnen vaak met een fotografie, die een startpunt wordt voor het verkennen van thema's als licht, kleur en emotie. Fotografie stelt me in staat deze thema's diepgaand te bestuderen, terwijl de tactiliteit en texturen van textiel steeds meer in mijn artistieke taal worden verweven. Elk kunstwerk weerspiegelt mijn innerlijke landschap, gevormd door de veranderlijke schoonheid en complexiteit van de natuurlijke wereld.",
+    "approachTitle": "Aanpak",
+    "approach": "Ik werk intuïtief en vertaal indrukken en emoties naar visuele vorm. Mijn proces begint met een gevoel van kalmte en focus, wat ik essentieel acht — een tegenwicht voor de complexiteit van het hedendaagse leven. Een centraal doel van mijn werk is een stil moment te creëren voor de kijker, een ruimte die uitnodigt tot persoonlijke interpretatie en reflectie.",
+    "exhibitionsTitle": "Tentoonstellingen",
+    "current": "Huidig",
+    "past": "Voorbije"
+  },
+  "works": {
+    "title": "Werken",
+    "subtitle": "Een selectie schilderijen, werken op papier en textiele exploraties.",
+    "filterAll": "Alles",
+    "filterPainting": "Schilderij",
+    "filterWorksOnPaper": "Werken op papier",
+    "filterTextile": "Textiel",
+    "viewOnInstagram": "Bekijk op Instagram",
+    "details": "Details",
+    "dimensions": "Afmetingen",
+    "year": "Jaar"
+  },
+  "exhibitions": {
+    "title": "Tentoonstellingsbeelden",
+    "subtitle": "Geselecteerde momenten uit ateliers, groepstentoonstellingen en open ateliers.",
+    "comingSoon": "Meer tentoonstellingsfotografie volgt binnenkort."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Voor vragen over werken, opdrachten of samenwerkingen.",
+    "email": "E-mail",
+    "instagram": "Instagram",
+    "location": "Gent, België",
+    "formName": "Naam",
+    "formEmail": "E-mail",
+    "formMessage": "Bericht",
+    "formSend": "Verstuur bericht",
+    "formNote": "Dit formulier is een placeholder — koppel je voorkeurs-e-mailservice voor de lancering."
+  },
+  "footer": {
+    "tagline": "Beeldende kunst · Schilderijen · Fotografie · Textiel",
+    "rights": "Alle rechten voorbehouden.",
+    "instagram": "Volg op Instagram"
+  },
+  "easterEgg": {
+    "studioMode": "Studiomodus geactiveerd",
+    "secret": "Kwetsbaarheid is kracht.",
+    "light": "Licht heeft je gevonden.",
+    "paintSplash": "Een vleugje kleur, speciaal voor jou."
+  }
+}

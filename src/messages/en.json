@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Isabella Billiet — Fine Art",
+    "description": "Paintings, photography and textile by Isabella Billiet. Based in Ghent, Belgium."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "works": "Works",
+    "exhibitions": "Exhibitions",
+    "contact": "Contact"
+  },
+  "home": {
+    "eyebrow": "Fine Art · Ghent",
+    "headline": "Capturing the fragile essence of life",
+    "subline": "Paintings, photography and textile — a quiet space for reflection.",
+    "ctaWorks": "View works",
+    "ctaAbout": "About the artist",
+    "featured": "Featured",
+    "recent": "Recent works",
+    "viewAll": "View all works",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About",
+    "bio1": "Born in Tielt, Belgium, in 1966. I now live and work in Ghent. My journey in the arts began with color pencils and grew into a lifelong exploration of visual expression. I earned a Master's degree in Art History from Ghent University, followed several years later by two years of Textile Design studies at KASK in Ghent.",
+    "bio2": "My work is a personal and passionate quest to express and capture the fragility and the delicate essence of life. I am drawn to the interplay between light and shadow, the infinite and the transitory, the dynamic and the static. Through my practice, I seek to reveal the poetic and ephemeral dimensions of existence.",
+    "mediumsTitle": "Paintings — Photography — Textile",
+    "mediums": "My abstract work is inspired by nature and imagination. My realistic paintings often begin with a photograph, which becomes a starting point for exploring themes of light, colour and emotion. Photography allows me to study these themes in depth, while the tactility and the textures of textile are increasingly woven into my artistic language. Each artwork reflects my inner landscape, formed by the shifting beauty and the complexity of the natural world.",
+    "approachTitle": "Approach",
+    "approach": "I work intuitively, translating impressions and emotions into visual form. My process begins with a sense of calm and focus, which I see as essential — a counterbalance to the complexity of contemporary life. A central aim of my work is to create a quiet moment for the viewer, a space that invites personal interpretation and reflection.",
+    "exhibitionsTitle": "Exhibitions",
+    "current": "Current",
+    "past": "Past"
+  },
+  "works": {
+    "title": "Works",
+    "subtitle": "A selection of paintings, works on paper and textile explorations.",
+    "filterAll": "All",
+    "filterPainting": "Painting",
+    "filterWorksOnPaper": "Works on paper",
+    "filterTextile": "Textile",
+    "viewOnInstagram": "View on Instagram",
+    "details": "Details",
+    "dimensions": "Dimensions",
+    "year": "Year"
+  },
+  "exhibitions": {
+    "title": "Exhibition views",
+    "subtitle": "Selected moments from studios, group shows and open ateliers.",
+    "comingSoon": "More exhibition photography coming soon."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "For inquiries about works, commissions or collaborations.",
+    "email": "Email",
+    "instagram": "Instagram",
+    "location": "Ghent, Belgium",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "formSend": "Send message",
+    "formNote": "This form is a placeholder — connect your preferred email service before launch."
+  },
+  "footer": {
+    "tagline": "Fine art · Paintings · Photography · Textile",
+    "rights": "All rights reserved.",
+    "instagram": "Follow on Instagram"
+  },
+  "easterEgg": {
+    "studioMode": "Studio mode activated",
+    "secret": "Fragility is strength.",
+    "light": "Light found you.",
+    "paintSplash": "A splash of colour, just for you."
+  }
+}
