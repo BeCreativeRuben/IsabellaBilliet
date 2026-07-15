@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { WorkCard } from "@/components/WorkCard";
+import { HeroAmbience } from "@/components/HeroAmbience";
 import { getFeaturedWorks, getRecentWorks } from "@/lib/works";
 
 type Props = {
@@ -17,27 +18,17 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <section className="relative flex min-h-screen items-end overflow-hidden pt-28 pb-16 md:items-center md:pb-24">
-        <div className="absolute inset-0 -z-10">
-          {featured && (
-            <Image
-              src={featured.image}
-              alt=""
-              fill
-              priority
-              className="object-cover opacity-30"
-              sizes="100vw"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/90 to-cream/70" />
+      <section className="relative flex min-h-0 flex-col justify-center overflow-hidden pt-28 pb-12 md:min-h-screen md:pb-24">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <HeroAmbience imageSrc={featured?.image ?? "/images/whispers-green-watercolor.webp"} />
         </div>
 
-        <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 md:grid-cols-12 md:px-10">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 md:grid-cols-12 md:gap-12 md:px-10">
           <div className="md:col-span-7">
             <p className="reveal text-xs tracking-[0.35em] text-ink-muted uppercase">
               {t("eyebrow")}
             </p>
-            <h1 className="reveal reveal-delay-1 font-display mt-6 text-5xl leading-[1.05] text-ink md:text-7xl lg:text-8xl">
+            <h1 className="reveal reveal-delay-1 font-display mt-6 text-4xl leading-[1.05] text-ink sm:text-5xl md:text-7xl lg:text-8xl">
               {t("headline")}
             </h1>
             <p className="reveal reveal-delay-2 mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
@@ -63,24 +54,30 @@ export default async function HomePage({ params }: Props) {
 
           {featured && (
             <div className="reveal reveal-delay-2 md:col-span-5">
-              <p className="mb-4 text-xs tracking-[0.28em] text-ink-muted uppercase">
+              <p className="mb-3 text-xs tracking-[0.28em] text-ink-muted uppercase md:mb-4">
                 {t("featured")}
               </p>
-              <Link href={`/works/${featured.slug}`} className="group block" data-cursor="hover">
-                <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark shadow-2xl shadow-ink/10">
+              <Link
+                href={`/works/${featured.slug}`}
+                className="group flex items-start gap-4 md:block"
+                data-cursor="hover"
+              >
+                <div className="relative aspect-[3/4] w-[38%] shrink-0 overflow-hidden bg-cream-dark shadow-lg shadow-ink/10 sm:w-[42%] md:aspect-[4/5] md:w-full md:shadow-2xl">
                   <Image
                     src={featured.image}
                     alt={featured.title}
                     fill
                     priority
-                    sizes="(max-width: 768px) 100vw, 40vw"
+                    sizes="(max-width: 768px) 40vw, 40vw"
                     className="image-hover object-cover"
                   />
                 </div>
-                <p className="mt-4 font-display text-2xl text-ink">{featured.title}</p>
-                <p className="text-sm text-ink-muted">
-                  {featured.medium} · {featured.year}
-                </p>
+                <div className="min-w-0 flex-1 md:mt-4">
+                  <p className="font-display text-xl text-ink md:text-2xl">{featured.title}</p>
+                  <p className="mt-1 text-sm text-ink-muted">
+                    {featured.medium} · {featured.year}
+                  </p>
+                </div>
               </Link>
             </div>
           )}

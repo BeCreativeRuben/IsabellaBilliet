@@ -203,3 +203,98 @@ body {
     transform: translateY(80px) scale(0.3);
   }
 }
+
+/* Hero ambience */
+@keyframes hero-ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1.5%, -2%);
+  }
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 32s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns {
+    animation: none;
+  }
+
+  .hero-orb {
+    animation: none !important;
+  }
+}
+
+.hero-light-layer {
+  transform: translate(var(--parallax-x, 0px), var(--parallax-y, 0px));
+  transition: transform 0.1s linear;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
+}
+
+.hero-orb-a {
+  top: -8%;
+  left: -6%;
+  width: min(55vw, 520px);
+  height: min(55vw, 520px);
+  background: radial-gradient(circle, color-mix(in srgb, #5b7a9d 45%, transparent), transparent 68%);
+  animation: hero-drift-a 24s ease-in-out infinite alternate;
+}
+
+.hero-orb-b {
+  top: 18%;
+  right: -10%;
+  width: min(48vw, 460px);
+  height: min(48vw, 460px);
+  background: radial-gradient(circle, color-mix(in srgb, #c9a962 35%, transparent), transparent 70%);
+  animation: hero-drift-b 30s ease-in-out infinite alternate;
+}
+
+.hero-orb-c {
+  bottom: -12%;
+  left: 22%;
+  width: min(50vw, 480px);
+  height: min(50vw, 480px);
+  background: radial-gradient(circle, color-mix(in srgb, #7d8b6f 40%, transparent), transparent 72%);
+  animation: hero-drift-c 28s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift-a {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(6%, 8%) scale(1.08);
+  }
+}
+
+@keyframes hero-drift-b {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-8%, 5%) scale(1.05);
+  }
+}
+
+@keyframes hero-drift-c {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(5%, -6%) scale(1.1);
+  }
+}
+
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
