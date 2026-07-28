@@ -12,10 +12,11 @@ export function SmoothScrollProvider({ children }: Props) {
     <ReactLenis
       root
       options={{
-        duration: 1.4,
+        duration: 1.05,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        touchMultiplier: 1.2,
+        touchMultiplier: 1.5,
+        syncTouch: false,
       }}
     >
       {children}
