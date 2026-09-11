@@ -23,11 +23,23 @@ export default async function ContactPage({ params }: Props) {
               {t("email")}
             </p>
             <a
-              href="mailto:info@isabellabilliet.com"
+              href="mailto:isabella.billiet@gmail.com"
               className="mt-2 block font-display text-2xl text-ink transition-colors hover:text-sage"
               data-cursor="hover"
             >
-              info@isabellabilliet.com
+              isabella.billiet@gmail.com
+            </a>
+          </div>
+          <div>
+            <p className="text-xs tracking-[0.22em] text-ink-muted uppercase">
+              {t("phone")}
+            </p>
+            <a
+              href="tel:+32474095177"
+              className="mt-2 block font-display text-2xl text-ink transition-colors hover:text-sage"
+              data-cursor="hover"
+            >
+              0032 474 09 51 77
             </a>
           </div>
           <div>
@@ -48,7 +60,9 @@ export default async function ContactPage({ params }: Props) {
             <p className="text-xs tracking-[0.22em] text-ink-muted uppercase">
               {t("location")}
             </p>
-            <p className="mt-2 font-display text-2xl text-ink">Ghent, Belgium</p>
+            <p className="mt-2 font-display text-2xl text-ink">
+              Oude Houtlei, 9000 Ghent
+            </p>
           </div>
         </div>
 
