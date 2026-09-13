@@ -82,7 +82,10 @@
     "formEmail": "E-mail",
     "formMessage": "Bericht",
     "formSend": "Verstuur bericht",
-    "formNote": "Dit formulier is een placeholder — koppel je voorkeurs-e-mailservice voor de lancering."
+    "formNote": "Bericht gaat naar Isabella.",
+    "formSending": "Versturen…",
+    "formSuccess": "Bedankt — je bericht is verzonden.",
+    "formError": "Er ging iets mis. Probeer opnieuw of mail Isabella rechtstreeks."
   },
   "footer": {
     "tagline": "Beeldende kunst · Schilderijen · Werken op papier · Textiel",

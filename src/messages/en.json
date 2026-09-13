@@ -82,7 +82,10 @@
     "formEmail": "Email",
     "formMessage": "Message",
     "formSend": "Send message",
-    "formNote": "This form is a placeholder — connect your preferred email service before launch."
+    "formNote": "Your message goes to Isabella.",
+    "formSending": "Sending…",
+    "formSuccess": "Thank you — your message was sent.",
+    "formError": "Something went wrong. Please try again or email Isabella directly."
   },
   "footer": {
     "tagline": "Fine art · Paintings · Works on paper · Textile",

@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ContactForm } from "@/components/ContactForm";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -66,52 +67,7 @@ export default async function ContactPage({ params }: Props) {
           </div>
         </div>
 
-        <form className="space-y-5 border border-ink/10 bg-cream-dark/30 p-6 md:p-8">
-          <div>
-            <label htmlFor="name" className="text-xs tracking-[0.18em] text-ink-muted uppercase">
-              {t("formName")}
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="mt-2 w-full border-b border-ink/15 bg-transparent py-2 text-ink outline-none focus:border-ink"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="text-xs tracking-[0.18em] text-ink-muted uppercase">
-              {t("formEmail")}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="mt-2 w-full border-b border-ink/15 bg-transparent py-2 text-ink outline-none focus:border-ink"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="text-xs tracking-[0.18em] text-ink-muted uppercase"
-            >
-              {t("formMessage")}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              className="mt-2 w-full resize-none border-b border-ink/15 bg-transparent py-2 text-ink outline-none focus:border-ink"
-            />
-          </div>
-          <button
-            type="button"
-            className="rounded-full border border-ink bg-ink px-6 py-3 text-xs tracking-[0.22em] text-cream uppercase transition-colors hover:bg-ink/90"
-            data-cursor="hover"
-          >
-            {t("formSend")}
-          </button>
-          <p className="text-xs leading-relaxed text-ink-muted">{t("formNote")}</p>
-        </form>
+        <ContactForm />
       </div>
     </div>
   );
