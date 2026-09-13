@@ -87,7 +87,7 @@ export async function AboutPageSections({ locale }: Props) {
           <div className="reveal reveal-delay-2 relative md:col-span-5 md:pb-4">
             <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark shadow-2xl shadow-ink/10">
               <Image
-                src="/images/florals.webp"
+                src="/images/isabella-portrait.webp"
                 alt={t("portraitAlt")}
                 fill
                 priority
