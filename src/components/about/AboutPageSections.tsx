@@ -21,13 +21,13 @@ export async function AboutPageSections({ locale }: Props) {
       key: "painting",
       title: t("mediumPainting"),
       description: t("mediumPaintingDesc"),
-      image: "/images/golden-morning-light.webp",
+      image: "/images/breathing-in-breathing-out.webp",
     },
     {
       key: "photography",
       title: t("mediumPhotography"),
       description: t("mediumPhotographyDesc"),
-      image: "/images/water-in-movement-1.webp",
+      image: "/images/plants.webp",
     },
     {
       key: "textile",
@@ -42,6 +42,7 @@ export async function AboutPageSections({ locale }: Props) {
     { label: t("location") },
     { label: t("education1") },
     { label: t("education2") },
+    { label: t("education3") },
   ];
 
   return (
@@ -50,7 +51,7 @@ export async function AboutPageSections({ locale }: Props) {
       <section className="relative overflow-hidden pt-36 pb-20 md:pt-44 md:pb-32">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/whispers-green-watercolor.webp"
+            src="/images/vagues-gigaro.webp"
             alt=""
             fill
             priority
@@ -86,7 +87,7 @@ export async function AboutPageSections({ locale }: Props) {
           <div className="reveal reveal-delay-2 relative md:col-span-5 md:pb-4">
             <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark shadow-2xl shadow-ink/10">
               <Image
-                src="/images/whispers-green-gouache-1.webp"
+                src="/images/isabella-portrait.webp"
                 alt={t("portraitAlt")}
                 fill
                 priority
@@ -116,7 +117,7 @@ export async function AboutPageSections({ locale }: Props) {
             <div className="sticky top-36">
               <div className="relative aspect-[3/4] overflow-hidden bg-cream-dark">
                 <Image
-                  src="/images/water-energy.webp"
+                  src="/images/work-in-progress.webp"
                   alt={t("studioAlt")}
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -187,7 +188,7 @@ export async function AboutPageSections({ locale }: Props) {
       <section className="relative overflow-hidden border-t border-ink/5 py-24 md:py-32">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/exhibition-1.webp"
+            src="/images/academy-studio.webp"
             alt=""
             fill
             className="object-cover opacity-[0.07]"
