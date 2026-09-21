@@ -42,7 +42,6 @@ export async function AboutPageSections({ locale }: Props) {
     { label: t("location") },
     { label: t("education1") },
     { label: t("education2") },
-    { label: t("education3") },
   ];
 
   return (
