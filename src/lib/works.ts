@@ -17,6 +17,18 @@ const IG = "https://www.instagram.com/isabella_billiet";
 
 export const works: Work[] = [
   {
+    slug: "tussen-het-gras",
+    title: "Tussen het gras",
+    series: "Recente werken",
+    medium: "Oil on linen canvas",
+    dimensions: "23 × 29 cm",
+    year: 2026,
+    category: "painting",
+    image: "/images/tussen-het-gras.webp",
+    instagramPost: IG,
+    featured: true,
+  },
+  {
     slug: "recente-1",
     title: "Recente werken I",
     series: "Recente werken",
@@ -434,6 +446,77 @@ export const exhibitionImages = [
     slug: "exhibition-5",
     image: "/images/exhibition-5.webp",
     caption: "Gallery view",
+  },
+
+  {
+    slug: "studio-view-01",
+    image: "/images/studio-view-01.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-02",
+    image: "/images/studio-view-02.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-03",
+    image: "/images/studio-view-03.webp",
+    caption: "Studio / works overview",
+  },
+  {
+    slug: "studio-view-04",
+    image: "/images/studio-view-04.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-05",
+    image: "/images/studio-view-05.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-06",
+    image: "/images/studio-view-06.webp",
+    caption: "Studio / works overview",
+  },
+  {
+    slug: "studio-view-07",
+    image: "/images/studio-view-07.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-08",
+    image: "/images/studio-view-08.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "studio-view-09",
+    image: "/images/studio-view-09.webp",
+    caption: "Studio view",
+  },
+  {
+    slug: "exhibition-view-01",
+    image: "/images/exhibition-view-01.webp",
+    caption: "Exhibition install",
+  },
+  {
+    slug: "exhibition-view-02",
+    image: "/images/exhibition-view-02.webp",
+    caption: "Gallery view",
+  },
+  {
+    slug: "exhibition-view-03",
+    image: "/images/exhibition-view-03.webp",
+    caption: "Exhibition install",
+  },
+  {
+    slug: "exhibition-view-04",
+    image: "/images/exhibition-view-04.webp",
+    caption: "Gallery view",
+  },
+  {
+    slug: "exhibition-view-05",
+    image: "/images/exhibition-view-05.webp",
+    caption: "Exhibition install",
   },
 ];
 
