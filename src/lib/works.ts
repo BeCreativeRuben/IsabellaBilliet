@@ -30,7 +30,7 @@ export const works: Work[] = [
   },
   {
     slug: "recente-1",
-    title: "Recente werken I",
+    title: "Geen titel",
     series: "Recente werken",
     medium: "Oil on panel",
     dimensions: "—",
@@ -42,7 +42,7 @@ export const works: Work[] = [
   },
   {
     slug: "recente-2",
-    title: "Recente werken II",
+    title: "Geen titel",
     series: "Recente werken",
     medium: "Oil on panel",
     dimensions: "—",
@@ -177,7 +177,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-1",
-    title: "Werken op papier I",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -189,7 +189,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-2",
-    title: "Werken op papier II",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -200,7 +200,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-3",
-    title: "Werken op papier III",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -211,7 +211,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-4",
-    title: "Werken op papier IV",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -222,7 +222,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-5",
-    title: "Werken op papier V",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -233,7 +233,7 @@ export const works: Work[] = [
   },
   {
     slug: "werken-op-papier-6",
-    title: "Werken op papier VI",
+    title: "Geen titel",
     series: "Werken op papier",
     medium: "On paper",
     dimensions: "—",
@@ -267,7 +267,7 @@ export const works: Work[] = [
   },
   {
     slug: "work-in-progress",
-    title: "Work in Progress",
+    title: "Geen titel",
     series: "Nature, Light & Shadow",
     medium: "On paper — work in progress",
     dimensions: "—",
@@ -477,7 +477,7 @@ export const works: Work[] = [
   },
   {
     slug: "galaxy",
-    title: "Galaxy",
+    title: "Geen titel",
     series: "Galaxy",
     medium: "Acrylic on linen canvas",
     dimensions: "80 × 120 cm",
