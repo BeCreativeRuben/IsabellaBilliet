@@ -75,11 +75,23 @@ export function CustomCursor() {
       raf = requestAnimationFrame(animate);
     };
 
+    const hoverSelector =
+      "a, button, [data-cursor='hover'], input, textarea, select, label, summary";
+
+    const syncHover = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const next = Boolean(target?.closest(hoverSelector));
+      if (next === hovering) return;
+      hovering = next;
+      applyClasses();
+    };
+
     const onMove = (event: MouseEvent) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
       setVisible(true);
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      syncHover(event);
       start();
 
       window.clearTimeout(idleTimer);
@@ -87,13 +99,7 @@ export function CustomCursor() {
     };
 
     const onOver = (event: MouseEvent) => {
-      const target = event.target as HTMLElement | null;
-      const next = Boolean(
-        target?.closest("a, button, [data-cursor='hover'], input, textarea, select, label"),
-      );
-      if (next === hovering) return;
-      hovering = next;
-      applyClasses();
+      syncHover(event);
     };
 
     const onLeave = () => setVisible(false);

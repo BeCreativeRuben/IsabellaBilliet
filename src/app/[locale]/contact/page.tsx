@@ -40,7 +40,7 @@ export default async function ContactPage({ params }: Props) {
               className="mt-2 block font-display text-2xl text-ink transition-colors hover:text-sage"
               data-cursor="hover"
             >
-              0032 474 09 51 77
+              +32 474 09 51 77
             </a>
           </div>
           <div>
