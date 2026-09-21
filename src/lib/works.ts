@@ -17,6 +17,18 @@ const IG = "https://www.instagram.com/isabella_billiet";
 
 export const works: Work[] = [
   {
+    slug: "ecoprint-okerpigment-linnen",
+    title: "Geen titel",
+    series: "Recente werken",
+    medium: "Ecoprint and ochre pigment on linen",
+    dimensions: "—",
+    year: 2026,
+    category: "textile",
+    image: "/images/ecoprint-okerpigment-linnen.webp",
+    instagramPost: IG,
+    featured: true,
+  },
+  {
     slug: "tussen-het-gras",
     title: "Tussen het gras",
     series: "Recente werken",
