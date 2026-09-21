@@ -233,7 +233,7 @@ export async function AboutPageSections({ locale }: Props) {
       </section>
 
       {/* Exhibitions timeline */}
-      <section className="border-t border-ink/5 bg-ink py-24 text-cream md:py-32">
+      <section className="border-t border-ink/5 bg-[#2c2824] py-24 text-cream md:py-32">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <RevealOnScroll>
             <p className="text-xs tracking-[0.28em] text-cream/50 uppercase">
