@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -21,6 +22,12 @@ const outfit = Outfit({
   weight: ["300", "400", "500"],
   variable: "--font-outfit",
 });
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaMeasurementId =
+  GA_MEASUREMENT_ID && /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID)
+    ? GA_MEASUREMENT_ID
+    : undefined;
 
 type Props = {
   children: React.ReactNode;
@@ -64,6 +71,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
+      {gaMeasurementId ? <GoogleAnalytics gaId={gaMeasurementId} /> : null}
     </html>
   );
 }
