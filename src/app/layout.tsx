@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Isabella Billiet",
-  description: "Fine art by Isabella Billiet",
+  metadataBase: new URL(SITE_URL),
 };
 
 export default function RootLayout({

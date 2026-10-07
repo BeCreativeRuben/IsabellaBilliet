@@ -1,13 +1,30 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { WorkCard } from "@/components/WorkCard";
 import { HeroAmbience } from "@/components/HeroAmbience";
 import { getFeaturedWorks, getRecentWorks } from "@/lib/works";
+import { DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT, pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return pageMetadata({
+    locale,
+    path: "",
+    title: t("title"),
+    description: t("description"),
+    absoluteTitle: true,
+    image: DEFAULT_OG_IMAGE,
+    imageAlt: DEFAULT_OG_IMAGE_ALT,
+  });
+}
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
@@ -67,7 +84,7 @@ export default async function HomePage({ params }: Props) {
                     src={featured.image}
                     alt={featured.title}
                     fill
-                    priority
+                    preload
                     sizes="(max-width: 768px) 40vw, 40vw"
                     className="image-hover object-cover"
                   />
@@ -101,13 +118,8 @@ export default async function HomePage({ params }: Props) {
             </Link>
           </div>
           <div className="grid gap-10 md:grid-cols-3">
-            {recent.map((work, index) => (
-              <WorkCard
-                key={work.slug}
-                work={work}
-                viewLabel={t("viewAll")}
-                priority={index === 0}
-              />
+            {recent.map((work) => (
+              <WorkCard key={work.slug} work={work} viewLabel={t("viewAll")} />
             ))}
           </div>
         </div>

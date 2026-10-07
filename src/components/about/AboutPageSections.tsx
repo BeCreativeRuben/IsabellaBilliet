@@ -53,7 +53,8 @@ export async function AboutPageSections({ locale }: Props) {
             src="/images/vagues-gigaro.webp"
             alt=""
             fill
-            priority
+            loading="eager"
+            fetchPriority="low"
             className="object-cover opacity-20"
             sizes="100vw"
           />
@@ -89,7 +90,7 @@ export async function AboutPageSections({ locale }: Props) {
                 src="/images/isabella-portrait.webp"
                 alt={t("portraitAlt")}
                 fill
-                priority
+                preload
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
               />

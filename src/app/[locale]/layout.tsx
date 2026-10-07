@@ -4,6 +4,8 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { SITE_NAME, siteJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
@@ -43,7 +45,10 @@ export async function generateMetadata({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
-    title: t("title"),
+    title: {
+      default: t("title"),
+      template: `%s — ${SITE_NAME}`,
+    },
     description: t("description"),
   };
 }
@@ -57,10 +62,12 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: "meta" });
 
   return (
     <html lang={locale} className={`${cormorant.variable} ${outfit.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
+        <JsonLd data={siteJsonLd(t("description"))} />
         <NextIntlClientProvider messages={messages}>
           <SmoothScrollProvider>
             <CustomCursor />

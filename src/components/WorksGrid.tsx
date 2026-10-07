@@ -53,7 +53,7 @@ export function WorksGrid({ works }: Props) {
             key={work.slug}
             work={work}
             viewLabel={t("details")}
-            priority={index < 3}
+            preload={index === 0}
           />
         ))}
       </div>
