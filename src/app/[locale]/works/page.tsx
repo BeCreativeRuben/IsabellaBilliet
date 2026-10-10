@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WorksGrid } from "@/components/WorksGrid";
-import { works } from "@/lib/works";
+import { displayWorkTitle, works } from "@/lib/works";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = {
@@ -18,7 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("title"),
     description: t("subtitle"),
     image: works[0]?.image,
-    imageAlt: works[0]?.title,
+    imageAlt: works[0]
+      ? displayWorkTitle(works[0].title, t("untitled"))
+      : undefined,
   });
 }
 

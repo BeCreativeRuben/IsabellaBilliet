@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { WorkCard } from "@/components/WorkCard";
 import { HeroAmbience } from "@/components/HeroAmbience";
-import { getFeaturedWorks, getRecentWorks } from "@/lib/works";
+import { displayWorkTitle, getFeaturedWorks, getRecentWorks } from "@/lib/works";
 import { DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT, pageMetadata } from "@/lib/seo";
 
 type Props = {
@@ -14,6 +14,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const worksT = await getTranslations({ locale, namespace: "works" });
 
   return pageMetadata({
     locale,
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("description"),
     absoluteTitle: true,
     image: DEFAULT_OG_IMAGE,
-    imageAlt: DEFAULT_OG_IMAGE_ALT,
+    imageAlt: displayWorkTitle(DEFAULT_OG_IMAGE_ALT, worksT("untitled")),
   });
 }
 
@@ -30,6 +31,8 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const worksT = await getTranslations("works");
+  const untitledLabel = worksT("untitled");
   const featured = getFeaturedWorks()[0];
   const recent = getRecentWorks(3);
 
@@ -82,7 +85,7 @@ export default async function HomePage({ params }: Props) {
                 <div className="relative aspect-[3/4] w-[38%] shrink-0 overflow-hidden bg-cream-dark shadow-lg shadow-ink/10 sm:w-[42%] md:aspect-[4/5] md:w-full md:shadow-2xl">
                   <Image
                     src={featured.image}
-                    alt={featured.title}
+                    alt={displayWorkTitle(featured.title, untitledLabel)}
                     fill
                     preload
                     sizes="(max-width: 768px) 40vw, 40vw"
@@ -90,7 +93,9 @@ export default async function HomePage({ params }: Props) {
                   />
                 </div>
                 <div className="min-w-0 flex-1 md:mt-4">
-                  <p className="font-display text-xl text-ink md:text-2xl">{featured.title}</p>
+                  <p className="font-display text-xl text-ink md:text-2xl">
+                    {displayWorkTitle(featured.title, untitledLabel)}
+                  </p>
                   <p className="mt-1 text-sm text-ink-muted">
                     {featured.medium} · {featured.year}
                   </p>
@@ -119,7 +124,12 @@ export default async function HomePage({ params }: Props) {
           </div>
           <div className="grid gap-10 md:grid-cols-3">
             {recent.map((work) => (
-              <WorkCard key={work.slug} work={work} viewLabel={t("viewAll")} />
+              <WorkCard
+                key={work.slug}
+                work={work}
+                viewLabel={t("viewAll")}
+                untitledLabel={untitledLabel}
+              />
             ))}
           </div>
         </div>

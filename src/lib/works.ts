@@ -666,6 +666,13 @@ export const exhibitions = [
   },
 ];
 
+const UNTITLED_TITLE = "Geen titel";
+
+/** Locale copy for untitled works lives in messages (`works.untitled`). */
+export function displayWorkTitle(title: string, untitledLabel: string): string {
+  return title === UNTITLED_TITLE ? untitledLabel : title;
+}
+
 export function getWorkBySlug(slug: string): Work | undefined {
   return works.find((work) => work.slug === slug);
 }
