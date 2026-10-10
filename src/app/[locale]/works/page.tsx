@@ -1,10 +1,26 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WorksGrid } from "@/components/WorksGrid";
 import { works } from "@/lib/works";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "works" });
+
+  return pageMetadata({
+    locale,
+    path: "/works",
+    title: t("title"),
+    description: t("subtitle"),
+    image: works[0]?.image,
+    imageAlt: works[0]?.title,
+  });
+}
 
 export default async function WorksPage({ params }: Props) {
   const { locale } = await params;

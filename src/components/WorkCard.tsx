@@ -5,10 +5,10 @@ import type { Work } from "@/lib/works";
 type Props = {
   work: Work;
   viewLabel: string;
-  priority?: boolean;
+  preload?: boolean;
 };
 
-export function WorkCard({ work, viewLabel, priority = false }: Props) {
+export function WorkCard({ work, viewLabel, preload = false }: Props) {
   return (
     <article className="group" data-cursor="hover">
       <Link href={`/works/${work.slug}`} className="block">
@@ -17,7 +17,7 @@ export function WorkCard({ work, viewLabel, priority = false }: Props) {
             src={work.image}
             alt={work.title}
             fill
-            priority={priority}
+            preload={preload}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="image-hover object-cover"
           />

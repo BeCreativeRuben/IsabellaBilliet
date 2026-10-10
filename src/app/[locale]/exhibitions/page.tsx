@@ -1,10 +1,24 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { exhibitionImages } from "@/lib/works";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "exhibitions" });
+
+  return pageMetadata({
+    locale,
+    path: "/exhibitions",
+    title: t("title"),
+    description: t("subtitle"),
+  });
+}
 
 export default async function ExhibitionsPage({ params }: Props) {
   const { locale } = await params;
@@ -31,7 +45,7 @@ export default async function ExhibitionsPage({ params }: Props) {
               fill
               sizes="(max-width: 768px) 100vw, 25vw"
               className="image-hover object-cover"
-              priority={index === 0}
+              preload={index === 0}
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-5">
               <p className="font-display text-lg text-cream">{item.caption}</p>

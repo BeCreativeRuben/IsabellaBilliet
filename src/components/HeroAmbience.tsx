@@ -74,7 +74,8 @@ export function HeroAmbience({ imageSrc }: Props) {
           src={imageSrc}
           alt=""
           fill
-          priority
+          loading="eager"
+          fetchPriority="low"
           sizes="100vw"
           className="object-cover opacity-[0.18] saturate-[0.85]"
         />
