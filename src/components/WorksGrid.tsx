@@ -53,6 +53,7 @@ export function WorksGrid({ works }: Props) {
             key={work.slug}
             work={work}
             viewLabel={t("details")}
+            untitledLabel={t("untitled")}
             preload={index === 0}
           />
         ))}

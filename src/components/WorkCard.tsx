@@ -1,21 +1,24 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import type { Work } from "@/lib/works";
+import { displayWorkTitle, type Work } from "@/lib/works";
 
 type Props = {
   work: Work;
   viewLabel: string;
+  untitledLabel: string;
   preload?: boolean;
 };
 
-export function WorkCard({ work, viewLabel, preload = false }: Props) {
+export function WorkCard({ work, viewLabel, untitledLabel, preload = false }: Props) {
+  const title = displayWorkTitle(work.title, untitledLabel);
+
   return (
     <article className="group" data-cursor="hover">
       <Link href={`/works/${work.slug}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
           <Image
             src={work.image}
-            alt={work.title}
+            alt={title}
             fill
             preload={preload}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -25,7 +28,7 @@ export function WorkCard({ work, viewLabel, preload = false }: Props) {
         </div>
         <div className="mt-4 flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-display text-xl text-ink md:text-2xl">{work.title}</h3>
+            <h3 className="font-display text-xl text-ink md:text-2xl">{title}</h3>
             <p className="mt-1 text-sm text-ink-muted">
               {work.medium} · {work.year}
             </p>

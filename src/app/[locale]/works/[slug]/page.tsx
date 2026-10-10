@@ -4,8 +4,12 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { getWorkBySlug, works } from "@/lib/works";
+import { displayWorkTitle, getWorkBySlug, works, type Work } from "@/lib/works";
 import { pageMetadata, visualArtworkJsonLd, workMetaDescription } from "@/lib/seo";
+
+function withDisplayTitle(work: Work, untitledLabel: string): Work {
+  return { ...work, title: displayWorkTitle(work.title, untitledLabel) };
+}
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -21,18 +25,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!work) return {};
 
   const t = await getTranslations({ locale, namespace: "works" });
+  const localized = withDisplayTitle(work, t("untitled"));
 
   return pageMetadata({
     locale,
-    path: `/works/${work.slug}`,
-    title: work.title,
-    description: workMetaDescription(work, {
+    path: `/works/${localized.slug}`,
+    title: localized.title,
+    description: workMetaDescription(localized, {
       details: t("details"),
       dimensions: t("dimensions"),
       year: t("year"),
     }),
-    image: work.image,
-    imageAlt: work.title,
+    image: localized.image,
+    imageAlt: localized.title,
   });
 }
 
@@ -40,9 +45,11 @@ export default async function WorkDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("works");
-  const work = getWorkBySlug(slug);
+  const stored = getWorkBySlug(slug);
 
-  if (!work) notFound();
+  if (!stored) notFound();
+
+  const work = withDisplayTitle(stored, t("untitled"));
 
   return (
     <div className="mx-auto max-w-6xl px-6 pt-36 pb-24 md:px-10 md:pt-44">
