@@ -38,6 +38,10 @@ const legacyRedirects = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    // CVE-2026-96889 is reached by optimizing SVG. Keep the default denial explicit.
+    dangerouslyAllowSVG: false,
+  },
   async redirects() {
     return legacyRedirects.map((r) => ({ ...r, permanent: true }));
   },
