@@ -1,13 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 
-type Props = {
-  imageSrc: string;
-};
-
-export function HeroAmbience({ imageSrc }: Props) {
+export function HeroAmbience() {
   const layerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,18 +64,6 @@ export function HeroAmbience({ imageSrc }: Props) {
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-cream">
-      <div className="hero-ken-burns absolute -inset-[8%]">
-        <Image
-          src={imageSrc}
-          alt=""
-          fill
-          loading="eager"
-          fetchPriority="low"
-          sizes="100vw"
-          className="object-cover opacity-[0.18] saturate-[0.85]"
-        />
-      </div>
-
       <div ref={layerRef} className="hero-light-layer absolute inset-0 will-change-transform">
         <div className="hero-orb hero-orb-a" />
         <div className="hero-orb hero-orb-b" />

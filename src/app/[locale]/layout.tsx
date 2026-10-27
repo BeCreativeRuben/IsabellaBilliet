@@ -1,4 +1,3 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -9,21 +8,48 @@ import { JsonLd } from "@/components/JsonLd";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { CustomCursor } from "@/components/CustomCursor";
-import { EasterEggs } from "@/components/EasterEggs";
+import { CookieConsent } from "@/components/CookieConsent";
+import { ClientEffects } from "@/components/ClientEffects";
 import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: "400",
+  display: "swap",
+  adjustFontFallback: true,
   variable: "--font-cormorant",
+  preload: true,
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: "400",
+  display: "swap",
+  adjustFontFallback: true,
   variable: "--font-outfit",
+  preload: true,
 });
+
+const CONSENT_BOOTSTRAP = `
+window.dataLayer = window.dataLayer || [];
+window.gtag = function gtag(){window.dataLayer.push(arguments);};
+(function () {
+  var stored = "";
+  try { stored = localStorage.getItem("ib-consent") || ""; } catch (e) {}
+  if (stored === "accepted" || stored === "rejected") {
+    document.documentElement.setAttribute("data-consent", stored);
+  }
+  window.gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: stored === "accepted" ? "granted" : "denied",
+    wait_for_update: 500
+  });
+  window.gtag("set", "ads_data_redaction", true);
+  window.gtag("set", "url_passthrough", true);
+})();
+`;
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const gaMeasurementId =
@@ -39,6 +65,8 @@ type Props = {
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
@@ -63,22 +91,30 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "meta" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
 
   return (
-    <html lang={locale} className={`${cormorant.variable} ${outfit.variable} h-full`}>
+    <html lang={locale} className={`${cormorant.variable} ${outfit.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col antialiased">
+        {gaMeasurementId ? (
+          <script id="ga-consent-default" dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP }} />
+        ) : null}
         <JsonLd data={siteJsonLd(t("description"))} />
         <NextIntlClientProvider messages={messages}>
           <SmoothScrollProvider>
-            <CustomCursor />
-            <EasterEggs />
+            <a href="#content" className="skip-link">
+              {nav("skip")}
+            </a>
+            <ClientEffects />
             <Header />
-            <main className="flex-1">{children}</main>
+            <main id="content" className="flex-1">
+              {children}
+            </main>
             <Footer />
+            {gaMeasurementId ? <CookieConsent gaId={gaMeasurementId} /> : null}
           </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
-      {gaMeasurementId ? <GoogleAnalytics gaId={gaMeasurementId} /> : null}
     </html>
   );
 }

@@ -7,10 +7,18 @@ type Props = {
   viewLabel: string;
   untitledLabel: string;
   preload?: boolean;
+  headingLevel?: "h2" | "h3";
 };
 
-export function WorkCard({ work, viewLabel, untitledLabel, preload = false }: Props) {
+export function WorkCard({
+  work,
+  viewLabel,
+  untitledLabel,
+  preload = false,
+  headingLevel = "h3",
+}: Props) {
   const title = displayWorkTitle(work.title, untitledLabel);
+  const Heading = headingLevel;
 
   return (
     <article className="group" data-cursor="hover">
@@ -28,7 +36,7 @@ export function WorkCard({ work, viewLabel, untitledLabel, preload = false }: Pr
         </div>
         <div className="mt-4 flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-display text-xl text-ink md:text-2xl">{title}</h3>
+            <Heading className="font-display text-xl text-ink md:text-2xl">{title}</Heading>
             <p className="mt-1 text-sm text-ink-muted">
               {work.medium} · {work.year}
             </p>

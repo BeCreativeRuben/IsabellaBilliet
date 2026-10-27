@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { WorkCard } from "@/components/WorkCard";
 import { HeroAmbience } from "@/components/HeroAmbience";
 import { displayWorkTitle, getFeaturedWorks, getRecentWorks } from "@/lib/works";
-import { DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT, pageMetadata } from "@/lib/seo";
+import { featuredOgAlt, pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -22,8 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     absoluteTitle: true,
-    image: DEFAULT_OG_IMAGE,
-    imageAlt: displayWorkTitle(DEFAULT_OG_IMAGE_ALT, worksT("untitled")),
+    imageAlt: featuredOgAlt(worksT("untitled")),
   });
 }
 
@@ -40,7 +39,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <section className="relative flex min-h-0 flex-col justify-center overflow-hidden pt-28 pb-12 md:min-h-screen md:pb-24">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <HeroAmbience imageSrc={featured?.image ?? "/images/whispers-green-watercolor.webp"} />
+          <HeroAmbience />
         </div>
 
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 md:grid-cols-12 md:gap-12 md:px-10">
@@ -48,7 +47,7 @@ export default async function HomePage({ params }: Props) {
             <p className="reveal text-xs tracking-[0.35em] text-ink-muted uppercase">
               {t("eyebrow")}
             </p>
-            <h1 className="reveal reveal-delay-1 font-display mt-6 text-4xl leading-[1.05] text-ink sm:text-5xl md:text-7xl lg:text-8xl">
+            <h1 className="font-display mt-6 text-4xl leading-[1.05] text-ink sm:text-5xl md:text-7xl lg:text-8xl">
               {t("headline")}
             </h1>
             <p className="reveal reveal-delay-2 mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
@@ -73,7 +72,7 @@ export default async function HomePage({ params }: Props) {
           </div>
 
           {featured && (
-            <div className="reveal reveal-delay-2 md:col-span-5">
+            <div className="md:col-span-5">
               <p className="mb-3 text-xs tracking-[0.28em] text-ink-muted uppercase md:mb-4">
                 {t("featured")}
               </p>
@@ -105,7 +104,7 @@ export default async function HomePage({ params }: Props) {
           )}
         </div>
 
-        <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] text-ink-muted uppercase">
+        <p className="mt-12 text-center text-[10px] tracking-[0.4em] text-ink-muted uppercase md:absolute md:bottom-8 md:left-1/2 md:mt-0 md:-translate-x-1/2">
           {t("scroll")}
         </p>
       </section>

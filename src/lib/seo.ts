@@ -1,19 +1,45 @@
 import type { Metadata } from "next";
-import { getFeaturedWorks, type Work } from "@/lib/works";
+import { displayWorkTitle, getFeaturedWorks, type Work } from "./works.ts";
 
 export const SITE_URL = "https://isabellabilliet.com";
 export const SITE_NAME = "Isabella Billiet";
 export const PRODUCTION_HOST = "isabellabilliet.com";
 
+/** Facts published on the site. Keep contact copy, JSON-LD and llms.txt aligned with these. */
+export const ARTIST = {
+  email: "isabella.billiet@gmail.com",
+  phoneDisplay: "+32 474 09 51 77",
+  phoneTel: "+32474095177",
+  street: "Oude Houtlei",
+  postalCode: "9000",
+  localityEn: "Ghent",
+  localityNl: "Gent",
+  countryEn: "Belgium",
+  countryNl: "België",
+  instagram: "https://www.instagram.com/isabella_billiet",
+  instagramHandle: "@isabella_billiet",
+  portrait: "/images/isabella-portrait.webp",
+} as const;
+
+export function studioLine(locale: string): string {
+  const city = locale === "nl" ? ARTIST.localityNl : ARTIST.localityEn;
+  return `${ARTIST.street}, ${ARTIST.postalCode} ${city}`;
+}
+
 const featured = getFeaturedWorks()[0];
 
 export const DEFAULT_OG_IMAGE =
   featured?.image ?? "/images/whispers-green-watercolor.webp";
-export const DEFAULT_OG_IMAGE_ALT = featured?.title ?? SITE_NAME;
+export const DEFAULT_OG_IMAGE_WIDTH = 1200;
+export const DEFAULT_OG_IMAGE_HEIGHT = 1600;
+export const DEFAULT_OG_IMAGE_ALT = SITE_NAME;
+
+export function featuredOgAlt(untitledLabel: string): string {
+  if (!featured?.title) return SITE_NAME;
+  return displayWorkTitle(featured.title, untitledLabel);
+}
 
 export const STATIC_PATHS = ["", "/about", "/works", "/exhibitions", "/contact"] as const;
-
-const INSTAGRAM = "https://www.instagram.com/isabella_billiet";
 
 type PageMetadataInput = {
   locale: string;
@@ -44,6 +70,15 @@ export function pageMetadata({
 }: PageMetadataInput): Metadata {
   const pathname = pagePath(locale, path);
   const fullTitle = absoluteTitle ? title : `${title} — ${SITE_NAME}`;
+  const ogImage =
+    image === DEFAULT_OG_IMAGE
+      ? {
+          url: image,
+          alt: imageAlt,
+          width: DEFAULT_OG_IMAGE_WIDTH,
+          height: DEFAULT_OG_IMAGE_HEIGHT,
+        }
+      : { url: image, alt: imageAlt };
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -64,13 +99,13 @@ export function pageMetadata({
       locale: ogLocale(locale),
       alternateLocale: locale === "nl" ? "en_GB" : "nl_BE",
       type: "website",
-      images: [{ url: image, alt: imageAlt }],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image],
+      images: [ogImage],
     },
   };
 }
@@ -95,25 +130,35 @@ export function siteJsonLd(description: string) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
+        "@type": ["Person", "VisualArtist"],
         "@id": `${SITE_URL}/#isabella-billiet`,
         name: SITE_NAME,
         url: SITE_URL,
-        email: "isabella.billiet@gmail.com",
-        telephone: "+32 474 09 51 77",
+        image: `${SITE_URL}${ARTIST.portrait}`,
+        email: ARTIST.email,
+        telephone: ARTIST.phoneDisplay,
+        description,
         birthDate: "1966",
         birthPlace: {
           "@type": "Place",
           name: "Tielt",
         },
-        sameAs: [INSTAGRAM],
+        sameAs: [ARTIST.instagram],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Oude Houtlei",
-          postalCode: "9000",
-          addressLocality: "Ghent",
+          streetAddress: ARTIST.street,
+          postalCode: ARTIST.postalCode,
+          addressLocality: ARTIST.localityEn,
           addressCountry: "Belgium",
         },
+        alumniOf: [
+          { "@type": "CollegeOrUniversity", name: "Ghent University" },
+          { "@type": "CollegeOrUniversity", name: "KASK, Ghent" },
+          {
+            "@type": "EducationalOrganization",
+            name: "Royale Académie Internationale d’Été de Wallonie",
+          },
+        ],
       },
       {
         "@type": "WebSite",
@@ -187,8 +232,25 @@ export function workMetaDescription(
   return `${work.title}. ${series}${parts.join(". ")}.`;
 }
 
+export function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export function llmsTxt(): string {
   const page = (locale: "en" | "nl", path: string) => `${SITE_URL}/${locale}${path}`;
+  const studioEn = studioLine("en");
+  const studioNl = studioLine("nl");
 
   return `# Isabella Billiet
 
@@ -196,9 +258,31 @@ export function llmsTxt(): string {
 
 > Schilderijen, werken op papier en textiel — licht en steeds veranderende schaduwen observeren. Gevestigd in Gent, België. Creëren in dialoog met de natuur.
 
-Isabella Billiet. Born in Tielt, 1966. Studio: Oude Houtlei, 9000 Ghent. Paintings, works on paper and textile — creating in dialogue with nature.
+Isabella Billiet. Born in Tielt, 1966. Lives and works in Ghent, Belgium. Studio: ${studioEn}, ${ARTIST.countryEn}. Fine art: paintings, works on paper and textile.
 
-Isabella Billiet. Geboren in Tielt, 1966. Atelier: Oude Houtlei, 9000 Ghent. Schilderijen, werken op papier en textiel — creëren in dialoog met de natuur.
+Isabella Billiet. Geboren in Tielt, 1966. Woont en werkt in Gent, België. Atelier: ${studioNl}, ${ARTIST.countryNl}. Beeldende kunst: schilderijen, werken op papier en textiel.
+
+## Contact
+- Studio: ${studioEn}, ${ARTIST.countryEn}
+- Atelier: ${studioNl}, ${ARTIST.countryNl}
+- Email: ${ARTIST.email}
+- Phone: ${ARTIST.phoneDisplay}
+- Instagram: ${ARTIST.instagram}
+
+## Practice
+- Paintings, works on paper and textile.
+- Schilderijen, werken op papier en textiel.
+- Inquiries about works, commissions, studio visits or collaborations: ${page("en", "/contact")}
+- Vragen over werken, opdrachten, atelierbezoek of samenwerkingen: ${page("nl", "/contact")}
+
+## Prices
+Prices are not published on this website.
+Prijzen staan niet op deze website.
+
+## Education
+- MA Art History — Ghent University
+- Textile Design — KASK, Ghent
+- Royale Académie Internationale d’Été de Wallonie
 
 ## English
 - ${page("en", "")}
@@ -213,8 +297,5 @@ Isabella Billiet. Geboren in Tielt, 1966. Atelier: Oude Houtlei, 9000 Ghent. Sch
 - ${page("nl", "/works")}
 - ${page("nl", "/exhibitions")}
 - ${page("nl", "/contact")}
-
-Instagram: ${INSTAGRAM}
-Email: isabella.billiet@gmail.com
 `;
 }

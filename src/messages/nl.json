@@ -1,14 +1,19 @@
 {
   "meta": {
     "title": "Isabella Billiet — Beeldende Kunst",
-    "description": "Schilderijen, fotografie en textiel van Isabella Billiet. Gevestigd in Gent, België. Creëren in dialoog met de natuur."
+    "description": "Schilderijen, werken op papier en textiel van Isabella Billiet. Gevestigd in Gent, België. Creëren in dialoog met de natuur."
   },
   "nav": {
     "home": "Home",
     "about": "Over",
     "works": "Werken",
     "exhibitions": "Tentoonstellingen",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "primary": "Hoofdmenu",
+    "mobile": "Mobiel menu",
+    "skip": "Ga naar inhoud"
   },
   "home": {
     "eyebrow": "Beeldende Kunst · Gent",
@@ -86,7 +91,28 @@
     "formNote": "Bericht gaat naar Isabella.",
     "formSending": "Versturen…",
     "formSuccess": "Bedankt — je bericht is verzonden.",
-    "formError": "Er ging iets mis. Probeer opnieuw of mail Isabella rechtstreeks."
+    "formError": "Er ging iets mis. Probeer opnieuw of mail Isabella rechtstreeks.",
+    "formNameInvalid": "Vul je naam in.",
+    "formEmailInvalid": "Vul een geldig e-mailadres in.",
+    "formMessageInvalid": "Vul een bericht in.",
+    "faqTitle": "Vragen",
+    "faqStudioQ": "Waar is het atelier?",
+    "faqStudioA": "Het atelier is op {address}, België.",
+    "faqReachQ": "Hoe kan ik Isabella Billiet contacteren?",
+    "faqReachA": "Mail {email} of bel {phone}.",
+    "faqInquiryQ": "Waarover kan ik contact opnemen?",
+    "faqPracticeQ": "Wat maakt Isabella Billiet?"
+  },
+  "consent": {
+    "label": "Cookietoestemming",
+    "message": "Analysecookies blijven uit tenzij je aanvaardt. Aanvaarden laat Google Analytics bezoek meten.",
+    "accept": "Aanvaarden",
+    "reject": "Weigeren"
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "body": "Deze pagina bestaat niet.",
+    "home": "Terug naar home"
   },
   "footer": {
     "tagline": "Beeldende kunst · Schilderijen · Werken op papier · Textiel",

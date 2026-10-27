@@ -37,13 +37,32 @@ const legacyRedirects = [
   { source: "/le-nuage", destination: "/en/works" },
 ];
 
+const securityHeaders = [
+  { key: "Strict-Transport-Security", value: "max-age=63072000" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+];
+
 const nextConfig: NextConfig = {
+  experimental: {
+    // Root layout is a locale passthrough, so unmatched URLs need their own document.
+    globalNotFound: true,
+  },
   images: {
     // CVE-2026-96889 is reached by optimizing SVG. Keep the default denial explicit.
     dangerouslyAllowSVG: false,
+    formats: ["image/avif", "image/webp"],
   },
   async redirects() {
     return legacyRedirects.map((r) => ({ ...r, permanent: true }));
+  },
+  async headers() {
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      { source: "/", headers: securityHeaders },
+    ];
   },
 };
 
