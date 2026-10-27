@@ -1,14 +1,19 @@
 {
   "meta": {
     "title": "Isabella Billiet — Fine Art",
-    "description": "Paintings, photography and textile by Isabella Billiet. Based in Ghent, Belgium. Creating in dialogue with nature."
+    "description": "Paintings, works on paper and textile by Isabella Billiet. Based in Ghent, Belgium. Creating in dialogue with nature."
   },
   "nav": {
     "home": "Home",
     "about": "About",
     "works": "Works",
     "exhibitions": "Exhibitions",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "primary": "Primary",
+    "mobile": "Mobile",
+    "skip": "Skip to content"
   },
   "home": {
     "eyebrow": "Fine Art · Ghent",
@@ -86,7 +91,28 @@
     "formNote": "Your message goes to Isabella.",
     "formSending": "Sending…",
     "formSuccess": "Thank you — your message was sent.",
-    "formError": "Something went wrong. Please try again or email Isabella directly."
+    "formError": "Something went wrong. Please try again or email Isabella directly.",
+    "formNameInvalid": "Please enter your name.",
+    "formEmailInvalid": "Please enter a valid email.",
+    "formMessageInvalid": "Please enter a message.",
+    "faqTitle": "Questions",
+    "faqStudioQ": "Where is the studio?",
+    "faqStudioA": "The studio is at {address}, Belgium.",
+    "faqReachQ": "How can I contact Isabella Billiet?",
+    "faqReachA": "Email {email} or call {phone}.",
+    "faqInquiryQ": "What can I ask about?",
+    "faqPracticeQ": "What does Isabella Billiet make?"
+  },
+  "consent": {
+    "label": "Cookie consent",
+    "message": "Analytics cookies stay off unless you accept. Accepting allows Google Analytics to measure visits.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page does not exist.",
+    "home": "Back to home"
   },
   "footer": {
     "tagline": "Fine art · Paintings · Works on paper · Textile",

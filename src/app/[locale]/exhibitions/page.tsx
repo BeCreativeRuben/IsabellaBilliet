@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { exhibitionImages } from "@/lib/works";
-import { pageMetadata } from "@/lib/seo";
+import { featuredOgAlt, pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -11,12 +11,14 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "exhibitions" });
+  const worksT = await getTranslations({ locale, namespace: "works" });
 
   return pageMetadata({
     locale,
     path: "/exhibitions",
     title: t("title"),
     description: t("subtitle"),
+    imageAlt: featuredOgAlt(worksT("untitled")),
   });
 }
 

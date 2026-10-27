@@ -19,6 +19,8 @@ export function generateStaticParams() {
   return works.map((work) => ({ slug: work.slug }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const work = getWorkBySlug(slug);
@@ -79,7 +81,7 @@ export default async function WorkDetailPage({ params }: Props) {
         <div className="lg:col-span-4 lg:pt-8">
           <h1 className="font-display text-4xl text-ink md:text-5xl">{work.title}</h1>
           {work.series && (
-            <p className="mt-2 text-sm tracking-[0.18em] text-sage uppercase">
+            <p className="mt-2 text-sm tracking-[0.18em] text-sage-ink uppercase">
               {work.series}
             </p>
           )}

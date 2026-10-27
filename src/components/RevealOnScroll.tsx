@@ -34,7 +34,7 @@ export function RevealOnScroll({ children, className }: Props) {
     <div
       ref={ref}
       className={clsx(
-        "transition-all duration-1000 ease-out",
+        "reveal-on-scroll transition-all duration-1000 ease-out",
         visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
         className,
       )}

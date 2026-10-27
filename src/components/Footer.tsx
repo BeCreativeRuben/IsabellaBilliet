@@ -23,7 +23,7 @@ export function Footer() {
             href="https://www.instagram.com/isabella_billiet"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm tracking-[0.18em] text-ink uppercase transition-colors hover:text-sage"
+            className="text-sm tracking-[0.18em] text-ink uppercase transition-colors hover:text-sage-ink"
             data-cursor="hover"
           >
             {t("instagram")}

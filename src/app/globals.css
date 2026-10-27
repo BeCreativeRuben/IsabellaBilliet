@@ -6,6 +6,8 @@
   --ink: #1a1714;
   --ink-muted: #5c564e;
   --sage: #7d8b6f;
+  --sage-ink: #646f59;
+  --sage-mist: #89957b;
   --clay: #b8956b;
   --gold: #c9a962;
   --background: var(--cream);
@@ -20,6 +22,8 @@
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-sage: var(--sage);
+  --color-sage-ink: var(--sage-ink);
+  --color-sage-mist: var(--sage-mist);
   --color-clay: var(--clay);
   --color-gold: var(--gold);
   --font-display: var(--font-cormorant);
@@ -51,6 +55,10 @@ html.lenis body {
   overflow: hidden;
 }
 
+html[data-consent] .cookie-banner {
+  display: none;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -74,6 +82,34 @@ summary {
   body {
     cursor: auto;
   }
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 80;
+  transform: translateY(-160%);
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 ::selection {
@@ -231,12 +267,35 @@ summary {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ken-burns {
-    animation: none;
+  .hero-ken-burns,
+  .hero-orb,
+  .reveal,
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .studio-mode::before,
+  .easter-toast,
+  .paint-dot {
+    animation: none !important;
   }
 
-  .hero-orb {
-    animation: none !important;
+  .image-hover,
+  .group:hover .image-hover {
+    transition: none;
+    transform: none;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (scripting: none) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

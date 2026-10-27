@@ -28,14 +28,15 @@ export function WorksGrid({ works }: Props) {
 
   return (
     <div>
-      <div className="mb-10 flex flex-wrap gap-3">
+      <div className="mb-10 flex flex-wrap gap-3" role="group" aria-label={t("title")}>
         {filters.map((filter) => (
           <button
             key={filter.key}
             type="button"
+            aria-pressed={active === filter.key}
             onClick={() => setActive(filter.key)}
             className={clsx(
-              "rounded-full border px-4 py-2 text-xs tracking-[0.18em] uppercase transition-all duration-300",
+              "min-h-11 rounded-full border px-4 text-xs tracking-[0.18em] uppercase transition-all duration-300",
               active === filter.key
                 ? "border-ink bg-ink text-cream"
                 : "border-ink/15 text-ink-muted hover:border-ink/40 hover:text-ink",
@@ -54,6 +55,7 @@ export function WorksGrid({ works }: Props) {
             work={work}
             viewLabel={t("details")}
             untitledLabel={t("untitled")}
+            headingLevel="h2"
             preload={index === 0}
           />
         ))}

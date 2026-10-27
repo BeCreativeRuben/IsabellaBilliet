@@ -99,7 +99,7 @@ export async function AboutPageSections({ locale }: Props) {
               <div className="relative aspect-[3/4]">
                 <Image
                   src="/images/traces.webp"
-                  alt=""
+                  alt="Traces I"
                   fill
                   sizes="200px"
                   className="object-cover"
@@ -131,7 +131,7 @@ export async function AboutPageSections({ locale }: Props) {
           </RevealOnScroll>
 
           <RevealOnScroll className="md:col-span-6 md:col-start-7">
-            <p className="text-xs tracking-[0.28em] text-sage uppercase">{t("storyLabel")}</p>
+            <p className="text-xs tracking-[0.28em] text-sage-ink uppercase">{t("storyLabel")}</p>
             <div className="mt-6 space-y-6 text-lg leading-relaxed text-ink-muted md:text-xl md:leading-relaxed">
               <p className="text-ink">{t("bio1")}</p>
               <p>{t("bio2")}</p>
@@ -200,7 +200,7 @@ export async function AboutPageSections({ locale }: Props) {
           <RevealOnScroll>
             <div className="grid gap-12 md:grid-cols-12 md:items-center">
               <div className="md:col-span-5">
-                <p className="text-xs tracking-[0.28em] text-sage uppercase">
+                <p className="text-xs tracking-[0.28em] text-sage-ink uppercase">
                   {t("approachTitle")}
                 </p>
                 <p className="font-display mt-6 text-4xl leading-tight text-ink md:text-5xl lg:text-6xl">
@@ -237,7 +237,7 @@ export async function AboutPageSections({ locale }: Props) {
       <section className="border-t border-ink/5 bg-[#2c2824] py-24 text-cream md:py-32">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <RevealOnScroll>
-            <p className="text-xs tracking-[0.28em] text-cream/50 uppercase">
+            <p className="text-xs tracking-[0.28em] text-cream/75 uppercase">
               {t("exhibitionsTitle")}
             </p>
             <h2 className="font-display mt-4 max-w-lg text-4xl md:text-5xl">
@@ -248,7 +248,7 @@ export async function AboutPageSections({ locale }: Props) {
           <div className="mt-16">
             {current.length > 0 && (
               <RevealOnScroll className="mb-12">
-                <p className="text-xs tracking-[0.25em] text-sage uppercase">{t("current")}</p>
+                <p className="text-xs tracking-[0.25em] text-sage-mist uppercase">{t("current")}</p>
                 {current.map((item) => (
                   <div
                     key={item.title}
@@ -257,7 +257,7 @@ export async function AboutPageSections({ locale }: Props) {
                     <p className="font-display text-3xl text-cream md:col-span-2">{item.year}</p>
                     <div className="md:col-span-10">
                       <p className="font-display text-2xl text-cream">{item.title}</p>
-                      <p className="mt-2 text-sm text-cream/60">
+                      <p className="mt-2 text-sm text-cream/75">
                         {item.location} · {item.period}
                       </p>
                     </div>
@@ -278,15 +278,15 @@ export async function AboutPageSections({ locale }: Props) {
                       )}
                     >
                       <div className="flex items-start gap-6 md:col-span-2 md:gap-0">
-                        <span className="relative z-10 font-display text-2xl text-cream/40 transition-colors group-hover:text-sage md:text-3xl">
+                        <span className="relative z-10 font-display text-2xl text-cream/70 transition-colors group-hover:text-sage-mist md:text-3xl">
                           {item.year}
                         </span>
                       </div>
                       <div className="mt-2 md:col-span-10 md:mt-0">
-                        <p className="font-display text-xl text-cream transition-colors group-hover:text-sage md:text-2xl">
+                        <p className="font-display text-xl text-cream transition-colors group-hover:text-sage-mist md:text-2xl">
                           {item.title}
                         </p>
-                        <p className="mt-2 text-sm text-cream/50">
+                        <p className="mt-2 text-sm text-cream/75">
                           {item.location} · {item.period}
                         </p>
                       </div>
