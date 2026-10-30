@@ -63,10 +63,7 @@ export async function AboutPageSections({ locale }: Props) {
 
         <div className="mx-auto grid max-w-7xl gap-14 px-6 md:grid-cols-12 md:items-end md:gap-10 md:px-10">
           <div className="md:col-span-7">
-            <p className="reveal text-xs tracking-[0.35em] text-ink-muted uppercase">
-              {t("eyebrow")}
-            </p>
-            <h1 className="reveal reveal-delay-1 font-display mt-5 text-6xl text-ink md:text-8xl">
+            <h1 className="reveal reveal-delay-1 font-display text-6xl text-ink md:text-8xl">
               {t("title")}
             </h1>
             <blockquote className="reveal reveal-delay-2 font-display mt-8 max-w-xl text-2xl leading-snug text-ink md:text-3xl">
@@ -95,17 +92,6 @@ export async function AboutPageSections({ locale }: Props) {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -right-4 -bottom-8 hidden w-2/5 overflow-hidden border-4 border-cream shadow-xl md:block">
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src="/images/traces.webp"
-                  alt="Traces I"
-                  fill
-                  sizes="200px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -131,8 +117,7 @@ export async function AboutPageSections({ locale }: Props) {
           </RevealOnScroll>
 
           <RevealOnScroll className="md:col-span-6 md:col-start-7">
-            <p className="text-xs tracking-[0.28em] text-sage-ink uppercase">{t("storyLabel")}</p>
-            <div className="mt-6 space-y-6 text-lg leading-relaxed text-ink-muted md:text-xl md:leading-relaxed">
+            <div className="space-y-6 text-lg leading-relaxed text-ink-muted md:text-xl md:leading-relaxed">
               <p className="text-ink">{t("bio1")}</p>
               <p>{t("bio2")}</p>
             </div>
