@@ -92,6 +92,9 @@ export async function AboutPageSections({ locale }: Props) {
                 className="object-cover"
               />
             </div>
+            <p className="mt-4 text-xs tracking-[0.22em] text-ink-muted uppercase">
+              Traces of light, observations
+            </p>
           </div>
         </div>
       </section>
