@@ -57,7 +57,9 @@
     "exhibitionsTitle": "Exhibitions",
     "exhibitionsSubtitle": "Selected group shows, open studios, residencies and vitrines across Belgium and beyond.",
     "current": "Current",
-    "past": "Past"
+    "past": "Past",
+    "ongoing": "present",
+    "exhibitionLink": "View on delen.art"
   },
   "works": {
     "title": "Works",

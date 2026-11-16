@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
-import { exhibitions } from "@/lib/works";
+import { exhibitions, type Exhibition } from "@/lib/works";
 
 type Props = {
   locale: string;
@@ -15,6 +15,12 @@ export async function AboutPageSections({ locale }: Props) {
 
   const current = exhibitions.filter((item) => item.current);
   const past = exhibitions.filter((item) => !item.current);
+
+  const exhibitionMeta = (item: Exhibition) => {
+    const period = item.ongoing ? `${item.period} — ${t("ongoing")}` : item.period;
+    const opening = item.opening ? (locale === "nl" ? item.opening.nl : item.opening.en) : null;
+    return [item.location, period, opening].filter(Boolean).join(" · ");
+  };
 
   const mediums = [
     {
@@ -246,8 +252,19 @@ export async function AboutPageSections({ locale }: Props) {
                     <div className="md:col-span-10">
                       <p className="font-display text-2xl text-cream">{item.title}</p>
                       <p className="mt-2 text-sm text-cream/75">
-                        {item.location} · {item.period}
+                        {exhibitionMeta(item)}
                       </p>
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-block text-xs tracking-[0.18em] text-cream uppercase transition-colors hover:text-sage-mist"
+                          data-cursor="hover"
+                        >
+                          {t("exhibitionLink")}
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -275,8 +292,19 @@ export async function AboutPageSections({ locale }: Props) {
                           {item.title}
                         </p>
                         <p className="mt-2 text-sm text-cream/75">
-                          {item.location} · {item.period}
+                          {exhibitionMeta(item)}
                         </p>
+                        {item.link && (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-block text-xs tracking-[0.18em] text-cream uppercase transition-colors hover:text-sage-mist"
+                            data-cursor="hover"
+                          >
+                            {t("exhibitionLink")}
+                          </a>
+                        )}
                       </div>
                     </li>
                   </RevealOnScroll>

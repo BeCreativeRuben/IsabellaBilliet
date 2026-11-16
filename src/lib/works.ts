@@ -578,13 +578,39 @@ export const exhibitionImages = [
   },
 ];
 
-export const exhibitions = [
+export type Exhibition = {
+  year: number;
+  title: string;
+  location: string;
+  period: string;
+  /** Still on view: rendered as "<period> — present" (localized). */
+  ongoing?: boolean;
+  /** External link, opens in a new tab. */
+  link?: string;
+  /** Localized opening line, appended after the period. */
+  opening?: { en: string; nl: string };
+  current?: boolean;
+};
+
+export const exhibitions: Exhibition[] = [
   {
     year: 2025,
     title: "Group exhibition at Delen Private Bank",
     location: "BP tower, Antwerp, Belgium",
-    period: "Aug 2025 — Aug 2026",
+    period: "Aug 2025",
+    ongoing: true,
+    link: "https://www.delen.art/en-be/artist/isabella-billiet",
     current: true,
+  },
+  {
+    year: 2026,
+    title: "Group exhibition — Traag",
+    location: "Karmelietenklooster, Burgstraat 46, 9000 Ghent, Belgium",
+    period: "Dec 4, 2026 — Jan 2, 2027",
+    opening: {
+      en: "Opening Fri Dec 4, 2026, 7.30 pm",
+      nl: "Opening vr 4 dec 2026, 19.30 u",
+    },
   },
   {
     year: 2026,

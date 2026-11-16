@@ -57,7 +57,9 @@
     "exhibitionsTitle": "Tentoonstellingen",
     "exhibitionsSubtitle": "Geselecteerde groepstentoonstellingen, open ateliers, residenties en vitrines in België en daarbuiten.",
     "current": "Huidig",
-    "past": "Voorbije"
+    "past": "Voorbije",
+    "ongoing": "heden",
+    "exhibitionLink": "Bekijk op delen.art"
   },
   "works": {
     "title": "Werken",
