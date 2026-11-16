@@ -611,6 +611,7 @@ export const exhibitions: Exhibition[] = [
       en: "Opening Fri Dec 4, 2026, 7.30 pm",
       nl: "Opening vr 4 dec 2026, 19.30 u",
     },
+    current: true,
   },
   {
     year: 2026,
